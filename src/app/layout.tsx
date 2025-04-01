@@ -26,6 +26,7 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${quicksand.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
