@@ -5,11 +5,13 @@ import Navbar from "../components/navbar";
 import Footer from "@/components/footer";
 
 const outfit = Outfit({
-  variable: "--font-outfit"
+  variable: "--font-outfit",
+  subsets: ["latin"]
 });
 
 const quicksand = Quicksand({
-  variable: "--font-quicksand"
+  variable: "--font-quicksand",
+  subsets: ["latin"]
 });
 
 export const metadata: Metadata = {
