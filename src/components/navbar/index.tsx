@@ -1,7 +1,10 @@
+"use client";
 
 // import { faBars } from "@fortawesome/free-solid-svg-icons";
 
+import { useIsMobile } from "@/hooks/use-mobile"
 import SubNavbar from "./sub-navbar"
+import { cn } from "@/lib/utils";
 
 
 const BarsIcon = (props: { className?: string }) => {
@@ -32,25 +35,30 @@ const ShopIcon = (props: { className?: string }) => {
 }
 
 
+
 export default function Navbar() {
+    const isMobile = useIsMobile();
     return (
         <nav>
             <nav className="h-[75px] bg-background flex items-center px-10">
                 <div className="flex items-center gap-3">
                     <BarsIcon className="p-1 size-8" />
-                    <p>Menu</p>
+                    <p className="!text-[16px]">Menu</p>
                 </div>
                 <div className="flex-1 flex justify-center">
                     <h3>Logo</h3>
                 </div>
-                <div className="flex gap-5">
+                <div className={cn(
+                    "flex gap-5",
+                    "max-[441px]:gap-1"
+                )}>
                     <div className="flex gap-1 items-center">
                         <UserIcon className="size-8 p-1" />
-                        <p>Compte</p>
+                        {!isMobile && <p>Compte</p>}
                     </div>
                     <div className="flex gap-1 items-center">
                         <ShopIcon className="size-8 p-1" />
-                        <p>Panier</p>
+                        {!isMobile && <p>Panier</p>}
                     </div>
                 </div>
             </nav>

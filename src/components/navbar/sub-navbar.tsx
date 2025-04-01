@@ -1,14 +1,34 @@
+"use client";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-export default function SubNavbar() {
+// Les petit points rond doivent être des carrées
+const BarsListIcon = (props: { className?: string }) => {
     return (
-        <nav className="h-[60px] bg-strilherezh-primary flex items-center px-10">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={props.className}>
+            <path strokeLinecap="butt" strokeLinejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+        </svg>
+    )
+}
+
+export default function SubNavbar() {
+    const isMobile = useIsMobile();
+    return (
+        <nav className={cn(
+            "h-[60px] bg-strilherezh-primary flex items-center px-10",
+            'min-[1920px]:h-[60px]',
+            'min-[441px]:h-[50px]',
+            'min-[360px]:h-[50px]'
+        )}>
             <div className="flex items-center gap-3">
                 <h3>Logo</h3>
             </div>
-            <div className="flex gap-5 ml-auto text-background">
+            <div className="flex items-center gap-5 ml-auto text-background">
                 <Link href="/">Tous nos produits</Link>
-                <Link href="/">Notre histoire</Link>
+                {isMobile ?
+                    <BarsListIcon className="rotate-180 h-[40px]" />
+                    : <Link href="/">Notre histoire</Link>}
             </div>
         </nav>
     )
