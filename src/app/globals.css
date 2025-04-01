@@ -6,6 +6,7 @@
 }
 
 @theme inline {
+  --font-outfit: "Outfit";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-strilherezh-primary: #E0AA3E;
@@ -62,10 +63,33 @@ h4 {
 
 p {
   font-family: Quicksand;
-  font-weight: 400;
+  /* font-weight: 400 */
+  ;
   font-size: 16px;
   line-height: 100%;
   letter-spacing: 0%;
+}
+
+@media screen and (max-width: 441px) {
+  p {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
