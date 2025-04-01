@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Quicksand } from "next/font/google";
 import "./globals.css";
-import Navbar from "./navbar";
+import Navbar from "../components/navbar";
 
 const outfit = Outfit({
   variable: "--font-outfit"
@@ -26,6 +26,7 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${quicksand.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
