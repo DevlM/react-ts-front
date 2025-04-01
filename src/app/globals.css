@@ -2,25 +2,73 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #505050;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-strilherezh-primary: #E0AA3E;
+  --color-skorneen-primary: #003D75;
+  --color-skorneen-secondary: #33CEF1;
+  --color-muted: #AAAAAA;
+  --color-accent: #E3E3E3;
+  --text-tiny: 14px;
+  --text-default--font-family: Quicksand;
+  --text-default--font-weight: 400;
+  --text-default--font-size: 16px;
+  --text-default--line-height: 100%;
+  --text-default--letter-spacing: 0%;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+} */
+
+h1 {
+  font-family: var(--font-outfit);
+  font-weight: 300;
+  font-size: 80px;
+  line-height: 100%;
+  letter-spacing: 5%;
+}
+
+h2 {
+  font-family: var(--font-outfit);
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 5%;
+}
+
+h3 {
+  font-family: var(--font-outfit);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 100%;
+  letter-spacing: 5%;
+}
+
+h4 {
+  font-family: var(--font-outfit);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 5%;
+}
+
+p {
+  font-family: Quicksand;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
