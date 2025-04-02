@@ -40,7 +40,11 @@ export default function Navbar() {
     const isMobile = useIsMobile();
     return (
         <nav>
-            <nav className="h-[75px] bg-background flex items-center px-10 max-[441px]:px-5">
+            <nav className={cn(
+                "bg-background flex items-center",
+                "py-1.5 px-4 md:px-10",
+                "min-h-12.5 md:min-h-19"
+                )}>
                 <div className="flex items-center gap-3">
                     <BarsIcon className="p-1 size-8" />
                     <p className="!text-[16px]">Menu</p>
@@ -49,7 +53,7 @@ export default function Navbar() {
                     <h3>Logo</h3>
                 </div>
                 <div className={cn(
-                    "flex gap-5",
+                    "flex gap-2.5 md:gap-6.5",
                     "max-[441px]:gap-1"
                 )}>
                     <div className="flex gap-1 items-center">
