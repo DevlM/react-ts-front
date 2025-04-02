@@ -5,6 +5,7 @@ import Navbar from "../components/navbar";
 import Footer from "@/components/footer";
 import Sidebar from "@/components/sidebar";
 import { SidebarProvider } from "@/hooks/use-sidebar";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -37,6 +38,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </SidebarProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
