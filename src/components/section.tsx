@@ -41,7 +41,7 @@ const Section: FC<SectionProps> & {
                 {props.children}
                 <div className={cn('flex flex-col max-sm:items-center gap-[25px] lg:gap-5', props.align && 'items-end')}>
                     {props.links.map((link, i) => (
-                        <Button.Link variant="tertiary" key={`${link.content}-${i}`} {...link} className='mt-8 min-w-[267px]' />
+                        <Button.Link key={`${link.content}-${i}`} {...link} className='mt-8 min-w-[267px]' />
                     ))}
                 </div>
             </div>
