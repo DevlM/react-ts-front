@@ -22,9 +22,9 @@ export function InstagramLogoThin(props: SVGProps<SVGSVGElement>) {
 export default function SubFooter() {
     return (
         <footer className={cn(
-            "border-t border-strilherezh-primary flex px-10 items-center",
-            'min-[900px]:h-full min-[900px]:flex-row',
-            'min-[200px]:h-auto min-[200px]:items-center min-[200px]:flex-col-reverse min-[200px]:gap-5 min-[200px]:py-5'
+            "border-t border-strilherezh-primary flex items-center",
+            'py-5 px-10 gap-6.5',
+            'max-sm:flex-col-reverse'
         )}>
             <div className="gap-6 flex flex-wrap min-[200px]:justify-center">
                 <Link href="/" className="">CGU</Link>

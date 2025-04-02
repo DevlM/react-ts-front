@@ -6,20 +6,53 @@
 }
 
 @theme inline {
+  --breakpoint-xxs: 320px;
+  --breakpoint-xs: 360px;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 900px;
+  --breakpoint-lg: 1100px;
+  --breakpoint-xl: 1440px;
+  --breakpoint-2xl: 1920px;
   --font-outfit: "Outfit";
+  --font-quicksand: "Quicksand";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-strilherezh-primary: #E0AA3E;
+  --color-strilherezh-tertiary: #F5CA5B;
   --color-skorneen-primary: #003D75;
   --color-skorneen-secondary: #33CEF1;
   --color-muted: #AAAAAA;
   --color-accent: #E3E3E3;
   --text-tiny: 14px;
-  --text-default--font-family: Quicksand;
-  --text-default--font-weight: 400;
-  --text-default--font-size: 16px;
-  --text-default--line-height: 100%;
-  --text-default--letter-spacing: 0%;
+}
+
+h1, h2, h3, h4 {
+  @apply font-outfit leading-[100%] tracking-[5%]
+}
+
+h1, h2 {
+  @apply font-light;
+}
+
+h3, h4 {
+  @apply font-normal;
+}
+
+h1 {
+  @apply text-[50px] sm:text-[80px];
+}
+h2 {
+  @apply text-[25px] sm:text-[40px] max-sm:text-[30px];
+}
+h3 {
+  @apply text-[20px] sm:text-[30px];
+}
+h4 {
+  @apply text-[15px] sm:text-[20px];
+}
+
+p, a {
+  @apply text-xs xs:text-sm md:text-base font-quicksand leading-[100%] tracking-[0%]
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -28,64 +61,6 @@
     --foreground: #ededed;
   }
 } */
-
-h1 {
-  font-family: var(--font-outfit);
-  font-weight: 300;
-  font-size: 80px;
-  line-height: 100%;
-  letter-spacing: 5%;
-}
-
-h2 {
-  font-family: var(--font-outfit);
-  font-weight: 300;
-  font-size: 40px;
-  line-height: 100%;
-  letter-spacing: 5%;
-}
-
-h3 {
-  font-family: var(--font-outfit);
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 100%;
-  letter-spacing: 5%;
-}
-
-h4 {
-  font-family: var(--font-outfit);
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 100%;
-  letter-spacing: 5%;
-}
-
-p {
-  font-family: Quicksand;
-  /* font-weight: 400; */
-  font-size: 16px;
-  line-height: 100%;
-  letter-spacing: 0%;
-}
-
-@media screen and (max-width: 441px) {
-  p {
-    font-size: 12px;
-  }
-
-  h1 {
-    font-size: 50px;
-  }
-
-  h2 {
-    font-size: 25px;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
-}
 
 html {
   scroll-behavior: smooth;
