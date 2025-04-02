@@ -24,7 +24,7 @@ const SectionSeparator = (props: { title: string; description?: string }) => (
     'min-[1100px]:h-[141px]',
     'min-[900px]:h-[141px]',
     'min-[441px]:h-[105px]',
-    'min-[360px]:h-[105px]'
+    'min-[320px]:h-[105px]'
   )}>
     <h3>{props.title}</h3>
     {props.description && <p>{props.description}</p>}
@@ -92,7 +92,7 @@ const Products = () => (
     'min-[1100px]:grid-rows-[repeat(1,550px)] min-[1100px]:grid-cols-4',
     'min-[900px]:grid-rows-[repeat(4,230px)]',
     'min-[441px]:grid-rows-[repeat(4,250px)]',
-    'min-[360px]:grid-rows-[repeat(4,200px)] min-[360px]:grid-cols-1'
+    'min-[320px]:grid-rows-[repeat(4,200px)] min-[320px]:grid-cols-1'
   )}>
     <Product
       title="Nos whiskys"
@@ -144,14 +144,14 @@ const ItemCard = () => (
       'group grid relative',
       'min-[1920px]:grid-rows-[500px_85px]',
       'min-[900px]:grid-rows-[400px_85px]',
-      'min-[360px]:grid-rows-[200px_70px]'
+      'max-[900px]:grid-rows-[200px_70px]'
     )}
   >
     <button
       className={cn(
         'absolute ml-auto w-min cursor-pointer z-10',
         'min-[900px]:top-5 min-[900px]:right-5',
-        'min-[360px]:top-2 min-[360px]:right-2'
+        'max-[900px]:top-2 max-[900px]:right-2'
       )}
     >
       <HeartIcon />
@@ -159,7 +159,7 @@ const ItemCard = () => (
     <Link href="/" className="bg-accent w-full h-full">
       <div
         className={
-          'w-full h-full p-5 group-hover:scale-110 transition-all ease-out duration-500'
+          'w-full h-full max-[1920px]:p-5 max-[441px]:p-3 group-hover:scale-110 transition-all ease-out duration-500'
         }
       >
         <div className={cn('w-full h-full relative')}>
@@ -183,13 +183,14 @@ const Items = () => {
   return (
     <section
       className={cn(
-        'grid gap-[20px] px-10 justify-center',
+        'grid gap-[20px] justify-center',
         'min-[1920px]:grid-cols-[repeat(4,445px)]',
         'min-[1440px]:grid-cols-[repeat(4,325px)]',
         'min-[1100px]:grid-cols-[repeat(3,326.67px)]',
         'min-[900px]:grid-cols-[repeat(2,400px)]',
         'min-[441px]:grid-cols-[repeat(3,180px)] min-[441px]:gap-[10px] min-[441px]:px-8',
-        'min-[360px]:grid-cols-[repeat(2,155px)] min-[360px]:gap-[10px] min-[360px]:px-8'
+        'max-[441px]:grid-cols-[repeat(2,155px)] max-[441px]:gap-[10px] max-[441px]:px-8',
+        'max-[360px]:grid-cols-[repeat(2,145px)] max-[360px]:gap-[5px] max-[360px]:px-3'
       )}
     >
       {Array(8)
@@ -208,7 +209,7 @@ const Items = () => {
     'min-[1100px]:',
     'min-[900px]:',
     'min-[441px]:',
-    'min-[360px]:'
+    'min-[320px]:'
     width: 360;
 height: 924;
 padding-top: 150px;
@@ -220,7 +221,7 @@ padding-left: 20px;
 
 const ButtonLink = (props: PropsWithChildren<{ href: string, className?: string }>) => {
   return (
-    <button className={cn('px-10 py-3 border bg-transparent min-[900px]:w-min min-[360px]:w-full min-w-[300px]', props.className)}>
+    <button className={cn('px-10 py-3 border bg-transparent min-[900px]:w-min min-[320px]:w-full min-w-[300px] min-[320px]:min-w-full', props.className)}>
       <Link href={props.href} className={'font-semibold whitespace-nowrap'}>{props.children}</Link>
     </button>
   )
@@ -235,8 +236,8 @@ const History = () => {
       'min-[1440px]:h-[800px]',
       'min-[1100px]:h-[800px]',
       'min-[900px]:h-[700px] min-[900px]:px-25',
-      'min-[441px]:h-[726px]',
-      'min-[360px]:h-[924px] min-[360px]:px-10'
+      'min-[441px]:h-[726px] min-[441px]:px-10',
+      'min-[320px]:h-[924px] min-[320px]:px-5'
 
     )}>
       <Image src="/dev/history.jpg" fill alt='header' className='object-center object-cover' />
@@ -247,9 +248,9 @@ const History = () => {
           'min-[1100px]:max-w-1/2',
           'min-[900px]:w-full',
         )}>
-          <p className='min-[360px]:!text-[14px] min-[900px]:text-[16px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur excepturi obcaecati necessitatibus a velit! Vitae nostrum commodi distinctio laudantium pariatur voluptatum omnis modi quaerat similique saepe incidunt praesentium, consequuntur est perferendis quia impedit blanditiis sequi at voluptatem porro consectetur, autem perspiciatis reprehenderit. Unde earum, alias illum laudantium quisquam doloribus quam.</p>
-          <p className='min-[360px]:!text-[14px] min-[900px]:text-[16px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur excepturi obcaecati necessitatibus a velit! Vitae nostrum commodi distinctio laudantium pariatur voluptatum omnis modi quaerat similique saepe incidunt praesentium, consequuntur est perferendis quia impedit blanditiis.</p>
-          <p className='min-[360px]:!text-[14px] min-[900px]:text-[16px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur excepturi obcaecati necessitatibus a velit! Vitae nostrum commodi distinctio laudantium pariatur voluptatum omnis modi quaerat similique saepe incidunt praesentium, consequuntur est perferendis quia impedit blanditiis sequi at voluptatem porro consectetur, autem perspiciatis reprehenderit. Unde earum, alias illum laudantium quisquam doloribus quam.</p>
+          <p className='min-[320px]:!text-[14px] min-[900px]:text-[16px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur excepturi obcaecati necessitatibus a velit! Vitae nostrum commodi distinctio laudantium pariatur voluptatum omnis modi quaerat similique saepe incidunt praesentium, consequuntur est perferendis quia impedit blanditiis sequi at voluptatem porro consectetur, autem perspiciatis reprehenderit. Unde earum, alias illum laudantium quisquam doloribus quam.</p>
+          <p className='min-[320px]:!text-[14px] min-[900px]:text-[16px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur excepturi obcaecati necessitatibus a velit! Vitae nostrum commodi distinctio laudantium pariatur voluptatum omnis modi quaerat similique saepe incidunt praesentium, consequuntur est perferendis quia impedit blanditiis.</p>
+          <p className='min-[320px]:!text-[14px] min-[900px]:text-[16px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur excepturi obcaecati necessitatibus a velit! Vitae nostrum commodi distinctio laudantium pariatur voluptatum omnis modi quaerat similique saepe incidunt praesentium, consequuntur est perferendis quia impedit blanditiis sequi at voluptatem porro consectetur, autem perspiciatis reprehenderit. Unde earum, alias illum laudantium quisquam doloribus quam.</p>
           <ButtonLink href='/' className='mt-8'>Découvrir notre histoire</ButtonLink>
         </div>
       </div>
@@ -265,20 +266,20 @@ const ProductDesc = () => {
       'min-[1440px]:h-[800px]',
       'min-[1100px]:h-[800px]',
       'min-[900px]:h-[700px] min-[900px]:px-25',
-      'min-[441px]:h-[726px]',
-      'min-[360px]:h-[924px] min-[360px]:px-10'
+      'min-[441px]:h-[726px] min-[441px]:px-10',
+      'min-[320px]:h-[924px] min-[320px]:px-5'
 
     )}>
       <Image src="/dev/productdesc.jpg" fill alt='header' className='object-center object-cover' />
-      <div className='z-10 space-y-6 text-background'>
+      <div className='z-10 space-y-6 text-background flex flex-col items-end'>
         <h2 className='!font-semibold text-right'>Nos produits</h2>
         <div className={cn(
           'flex flex-col items-end gap-5',
           'min-[1100px]:max-w-1/2',
-          'min-[900px]:w-full',
+          'min-[900px]:flex-1',
         )}>
-          <p className='text-right min-[360px]:!text-[14px] min-[900px]:text-[16px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur excepturi obcaecati necessitatibus a velit! Vitae nostrum commodi distinctio laudantium pariatur voluptatum omnis modi quaerat similique saepe incidunt praesentium, consequuntur est perferendis quia impedit blanditiis sequi at voluptatem porro consectetur, autem perspiciatis reprehenderit. Unde earum, alias illum laudantium quisquam doloribus quam.</p>
-          <p className='text-right min-[360px]:!text-[14px] min-[900px]:text-[16px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur excepturi obcaecati necessitatibus a velit! Vitae nostrum commodi distinctio laudantium pariatur voluptatum omnis modi quaerat similique saepe incidunt praesentium, consequuntur est perferendis quia impedit blanditiis.</p>
+          <p className='text-right min-[320px]:!text-[14px] min-[900px]:text-[16px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur excepturi obcaecati necessitatibus a velit! Vitae nostrum commodi distinctio laudantium pariatur voluptatum omnis modi quaerat similique saepe incidunt praesentium, consequuntur est perferendis quia impedit blanditiis sequi at voluptatem porro consectetur, autem perspiciatis reprehenderit. Unde earum, alias illum laudantium quisquam doloribus quam.</p>
+          <p className='text-right min-[320px]:!text-[14px] min-[900px]:text-[16px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur excepturi obcaecati necessitatibus a velit! Vitae nostrum commodi distinctio laudantium pariatur voluptatum omnis modi quaerat similique saepe incidunt praesentium, consequuntur est perferendis quia impedit blanditiis.</p>
           <ButtonLink href='/' className='mt-8 min-[900px]:text-right'>Découvrir nos whisky</ButtonLink>
           <ButtonLink href='/' className='mt-3 min-[900px]:text-right'>Découvrir nos cidres</ButtonLink>
           <ButtonLink href='/' className='mt-3 min-[900px]:text-right'>Découvrir nos vins</ButtonLink>

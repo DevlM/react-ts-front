@@ -1,12 +1,14 @@
+"use client";
 import { cn } from "@/lib/utils";
 import SubFooter from "./sub-footer";
 import Link from "next/link";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const LinksList = (props: { links: { title: string; link: string }[] }) => (
     <ul className="space-y-1">
         {props.links.map((link, i) => (
             <li key={link.link + "-" + i}>
-                <Link className="font-outfit font-light tracking-wider" href={link.link}>{link.title}</Link>
+                <Link className="font-outfit font-light tracking-wider text-muted" href={link.link}>{link.title}</Link>
             </li>
         ))}
     </ul>
@@ -14,6 +16,8 @@ const LinksList = (props: { links: { title: string; link: string }[] }) => (
 
 
 export default function Footer() {
+    const isMobile = useIsMobile();
+
     return (
         <footer className="space-y-10">
             <section className={cn(
@@ -36,6 +40,7 @@ export default function Footer() {
                         { title: 'Tous nos produits', link: '/' },
                     ]} />
                 </div>
+                {isMobile && <span className="w-full h-[1px] bg-accent" />}
                 <div className="min-w-[200px] space-y-3">
                     <h4 className="text-strilherezh-primary">Skornenn</h4>
                     <LinksList links={[
@@ -45,6 +50,7 @@ export default function Footer() {
                         { title: 'Cidres de glace', link: '/' },
                     ]} />
                 </div>
+                {isMobile && <span className="w-full h-[1px] bg-accent" />}
                 <div className="min-w-[200px] space-y-3">
                     <h4 className="text-strilherezh-primary">Vins</h4>
                     <LinksList links={[
@@ -54,6 +60,7 @@ export default function Footer() {
                         { title: 'Vins rosés', link: '/' },
                     ]} />
                 </div>
+                {isMobile && <span className="w-full h-[1px] bg-accent" />}
                 <div className="min-w-[200px] space-y-3">
                     <h4 className="text-strilherezh-primary">Whiskys</h4>
                     <LinksList links={[
@@ -62,6 +69,7 @@ export default function Footer() {
                         { title: 'Catégorie 2', link: '/' }
                     ]} />
                 </div>
+                {isMobile && <span className="w-full h-[1px] bg-accent" />}
                 <div className="min-w-[200px] space-y-3">
                     <h4 className="text-strilherezh-primary">Exclusivités</h4>
                     <LinksList links={[
