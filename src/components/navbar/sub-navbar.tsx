@@ -1,5 +1,6 @@
 "use client";
 import { useIsMobile } from "@/hooks/use-mobile";
+import useNavbar from "@/hooks/use-navbar";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -14,11 +15,13 @@ const BarsListIcon = (props: { className?: string }) => {
 
 export default function SubNavbar() {
     const isMobile = useIsMobile();
+    const { isNavbarVisible } = useNavbar({ fixed: isMobile });
     return (
         <nav className={cn(
-            "bg-strilherezh-primary flex items-center",
+            "bg-strilherezh-primary flex items-center fixed w-full z-9",
             "py-2.5 px-5 md:px-10",
-            "min-h-12.5 md:min-h-15"
+            "min-h-12.5 md:min-h-15 top-12.5 md:top-19 transition-transform duration-500",
+            isNavbarVisible ? "translate-y-0" : "-translate-y-12.5 md:-translate-y-19"
         )}>
             <div className="flex items-center gap-3">
                 <h3>Logo</h3>
