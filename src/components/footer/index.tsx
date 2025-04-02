@@ -29,53 +29,63 @@ export default function Footer() {
             </section>
             <section className={cn(
                 "flex gap-20 flex-wrap",
-                "min-[900px]:px-10 min-[900px]:justify-start",
-                "min-[200px]:px-10 min-[200px]:justify-center",
+                // "min-[900px]:px-10 min-[900px]:justify-start",
+                "min-[200px]:justify-center",
                 "max-[441px]:text-center"
             )}>
-                <div className="min-w-[200px] space-y-3">
-                    <h4 className="text-strilherezh-primary">Strilherezh</h4>
-                    <LinksList links={[
-                        { title: 'Notre histoire', link: '/' },
-                        { title: 'Tous nos produits', link: '/' },
-                    ]} />
+                <div className="min-w-[200px] flex justify-center">
+                    <div className="space-y-3">
+                        <h4 className="text-strilherezh-primary">Strilherezh</h4>
+                        <LinksList links={[
+                            { title: 'Notre histoire', link: '/' },
+                            { title: 'Tous nos produits', link: '/' },
+                        ]} />
+                    </div>
                 </div>
                 {isMobile && <span className="w-full h-[1px] bg-accent" />}
-                <div className="min-w-[200px] space-y-3">
-                    <h4 className="text-strilherezh-primary">Skornenn</h4>
-                    <LinksList links={[
-                        { title: 'Histoire de Skornenn', link: '/' },
-                        { title: 'Cidres natures', link: '/' },
-                        { title: 'Cidres de feu', link: '/' },
-                        { title: 'Cidres de glace', link: '/' },
-                    ]} />
+                <div className="min-w-[200px] flex justify-center">
+                    <div className="space-y-3">
+                        <h4 className="text-strilherezh-primary">Skornenn</h4>
+                        <LinksList links={[
+                            { title: 'Histoire de Skornenn', link: '/' },
+                            { title: 'Cidres natures', link: '/' },
+                            { title: 'Cidres de feu', link: '/' },
+                            { title: 'Cidres de glace', link: '/' },
+                        ]} />
+                    </div>
                 </div>
                 {isMobile && <span className="w-full h-[1px] bg-accent" />}
-                <div className="min-w-[200px] space-y-3">
-                    <h4 className="text-strilherezh-primary">Vins</h4>
-                    <LinksList links={[
-                        { title: 'Histoire de "Vins"', link: '/' },
-                        { title: 'Vins rouges', link: '/' },
-                        { title: 'Vins blancs', link: '/' },
-                        { title: 'Vins rosés', link: '/' },
-                    ]} />
+                <div className="min-w-[200px] flex justify-center">
+                    <div className="space-y-3">
+                        <h4 className="text-strilherezh-primary">Vins</h4>
+                        <LinksList links={[
+                            { title: 'Histoire de "Vins"', link: '/' },
+                            { title: 'Vins rouges', link: '/' },
+                            { title: 'Vins blancs', link: '/' },
+                            { title: 'Vins rosés', link: '/' },
+                        ]} />
+                    </div>
                 </div>
                 {isMobile && <span className="w-full h-[1px] bg-accent" />}
-                <div className="min-w-[200px] space-y-3">
-                    <h4 className="text-strilherezh-primary">Whiskys</h4>
-                    <LinksList links={[
-                        { title: 'Histoire de "Whiskys"', link: '/' },
-                        { title: 'Catégorie 1', link: '/' },
-                        { title: 'Catégorie 2', link: '/' }
-                    ]} />
+                <div className="min-w-[200px] flex justify-center">
+                    <div className="space-y-3">
+                        <h4 className="text-strilherezh-primary">Whiskys</h4>
+                        <LinksList links={[
+                            { title: 'Histoire de "Whiskys"', link: '/' },
+                            { title: 'Catégorie 1', link: '/' },
+                            { title: 'Catégorie 2', link: '/' }
+                        ]} />
+                    </div>
                 </div>
                 {isMobile && <span className="w-full h-[1px] bg-accent" />}
-                <div className="min-w-[200px] space-y-3">
-                    <h4 className="text-strilherezh-primary">Exclusivités</h4>
-                    <LinksList links={[
-                        { title: 'Catégorie 1', link: '/' },
-                        { title: 'Catégorie 2', link: '/' }
-                    ]} />
+                <div className="min-w-[200px] flex justify-center">
+                    <div className="space-y-3">
+                        <h4 className="text-strilherezh-primary">Exclusivités</h4>
+                        <LinksList links={[
+                            { title: 'Catégorie 1', link: '/' },
+                            { title: 'Catégorie 2', link: '/' }
+                        ]} />
+                    </div>
                 </div>
             </section>
             <p className="text-center">© Skornenn 2024 - STRILHEREZH, France</p>
