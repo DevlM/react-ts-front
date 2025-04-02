@@ -6,6 +6,7 @@ import { useIsMobile } from "@/hooks/use-mobile"
 import SubNavbar from "./sub-navbar"
 import { cn } from "@/lib/utils";
 import useNavbar from "@/hooks/use-navbar";
+import useSidebar from "@/hooks/use-sidebar";
 
 
 const BarsIcon = (props: { className?: string }) => {
@@ -40,7 +41,7 @@ const ShopIcon = (props: { className?: string }) => {
 export default function Navbar() {
     const isMobile = useIsMobile();
     const { isNavbarVisible } = useNavbar({ fixed: isMobile });
-
+    const { toggleSideBar } = useSidebar();
     return (
         <header className="relative">
             <nav className={cn(
@@ -50,7 +51,7 @@ export default function Navbar() {
                 isNavbarVisible ? "translate-y-0" : "-translate-y-full"
 
             )}>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3" onClick={toggleSideBar}>
                     <BarsIcon className="p-1 size-8" />
                     <p className="!text-[16px]">Menu</p>
                 </div>
