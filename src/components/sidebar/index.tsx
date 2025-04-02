@@ -96,10 +96,7 @@ export default function Sidebar() {
     const { isVisible } = useSidebar();
     const [page, setPage] = useState<string>('default');
     useEffect(() => {
-        const delaySwitch = setTimeout(() => {
-            setPage('default');
-        }, 500);
-        return () => clearTimeout(delaySwitch);
+        setPage('default');
     }, [isVisible])
 
     return (
