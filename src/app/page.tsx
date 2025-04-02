@@ -1,43 +1,22 @@
+import { LinkRightArrowIcon } from '@/components/icon';
 import Section from '@/components/section';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const Hero = () => (
-  <header className="flex items-center justify-center min-h-[600px] relative">
+  <div className="flex items-center justify-center min-h-[600px] relative">
     <Image src="/dev/header.jpg" fill alt='header' className='object-center object-cover' />
-    <div className="text-center space-y-2 z-10">
+    <div className="text-center space-y-2 z-1">
       <h2 className="uppercase text-strilherezh-primary">Strilherezh</h2>
       <h1 className="uppercase text-background">L&rsquo;alcool breton</h1>
       <p className='text-background'>
         L&rsquo;Essence de la Bretagne en Chaque Goutte. (texte généré par Chat GPT)
       </p>
     </div>
-  </header>
+  </div>
 );
 
-const LinkArrowIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className="size-8"
-  >
-    <path
-      fillRule="evenodd"
-      d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Z"
-      clipRule="evenodd"
-      className="text-accent/80"
-    />
-    <path
-      fill="white"
-      className="text-white"
-      fillRule="evenodd"
-      d="M16.28 12.53a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z"
-      clipRule="evenodd"
-    />
-  </svg>
-);
 
 const Product = (props: {
   title: string;
@@ -54,7 +33,7 @@ const Product = (props: {
     <div className="row-[1] col-[1] z-2 p-5 ml-auto mr-10 group-hover:mr-0 transition-all ease-out duration-500 delay-75 group-hover:opacity-100 opacity-0">
       <div className="flex items-center text-white gap-2">
         <p className="text-default  font-medium">Tout découvrir</p>
-        <LinkArrowIcon />
+        <LinkRightArrowIcon />
       </div>
     </div>
     <div className="h-full w-full relative row-start-1 row-span-2 col-[1]">
