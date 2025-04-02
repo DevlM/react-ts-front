@@ -7,7 +7,7 @@ export function InstagramLogoThin(props: SVGProps<SVGSVGElement>) {
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 256 256"
-            className="size-8"
+            className="size-8 border text-muted rounded-full p-1"
             {...props}
         >
             <path
@@ -22,9 +22,9 @@ export function InstagramLogoThin(props: SVGProps<SVGSVGElement>) {
 export default function SubFooter() {
     return (
         <footer className={cn(
-            "border-t border-strilherezh-primary flex px-10 flex items-center",
+            "border-t border-strilherezh-primary flex px-10 items-center",
             'min-[900px]:h-full min-[900px]:flex-row',
-            'min-[200px]:h-auto min-[200px]:items-center min-[200px]:flex-col-reverse'
+            'min-[200px]:h-auto min-[200px]:items-center min-[200px]:flex-col-reverse min-[200px]:gap-5 min-[200px]:py-5'
         )}>
             <div className="gap-6 flex flex-wrap min-[200px]:justify-center">
                 <Link href="/" className="">CGU</Link>
@@ -32,7 +32,10 @@ export default function SubFooter() {
                 <Link href="/" className="">Politique de confidentialité</Link>
                 <Link href="/" className="">Mentions légales</Link>
             </div>
-            <div className="min-[900px]:ml-auto">
+            <div className="min-[900px]:ml-auto flex">
+                <Link href="/" className="rounded-full p-1"><InstagramLogoThin /></Link>
+                <Link href="/" className="rounded-full p-1"><InstagramLogoThin /></Link>
+                <Link href="/" className="rounded-full p-1"><InstagramLogoThin /></Link>
                 <Link href="/" className="rounded-full p-1"><InstagramLogoThin /></Link>
             </div>
         </footer>

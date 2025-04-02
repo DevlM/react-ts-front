@@ -40,7 +40,7 @@ export default function Navbar() {
     const isMobile = useIsMobile();
     return (
         <nav>
-            <nav className="h-[75px] bg-background flex items-center px-10">
+            <nav className="h-[75px] bg-background flex items-center px-10 max-[441px]:px-5">
                 <div className="flex items-center gap-3">
                     <BarsIcon className="p-1 size-8" />
                     <p className="!text-[16px]">Menu</p>

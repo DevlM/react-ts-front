@@ -16,7 +16,7 @@ export default function SubNavbar() {
     const isMobile = useIsMobile();
     return (
         <nav className={cn(
-            "h-[60px] bg-strilherezh-primary flex items-center px-10",
+            "h-[60px] bg-strilherezh-primary flex items-center px-10 max-[441px]:px-5",
             'min-[1920px]:h-[60px]',
             'min-[441px]:h-[50px]',
             'min-[360px]:h-[50px]'
