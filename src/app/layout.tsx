@@ -34,14 +34,14 @@ export default function RootLayout({
         className={`${outfit.variable} ${quicksand.variable} antialiased`}
       >
         <AppProvider>
-        <SidebarProvider >
-          <Navbar />
-          <SidebarLeft />
-          <SidebarRight />
-          {children}
-          <Footer />
-        </SidebarProvider>
-        <SpeedInsights />
+          <SidebarProvider >
+            <Navbar />
+            <SidebarLeft />
+            <SidebarRight />
+            {children}
+            <Footer />
+          </SidebarProvider>
+          <SpeedInsights />
         </AppProvider>
       </body>
     </html>
