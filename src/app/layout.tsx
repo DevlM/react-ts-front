@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import { SidebarLeft, SidebarRight } from "@/components/sidebar";
 import { SidebarProvider } from "@/hooks/use-sidebar";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { AppProvider } from "@/hooks/use-app";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${quicksand.variable} antialiased`}
       >
+        <AppProvider>
         <SidebarProvider >
           <Navbar />
           <SidebarLeft />
@@ -40,6 +42,7 @@ export default function RootLayout({
           <Footer />
         </SidebarProvider>
         <SpeedInsights />
+        </AppProvider>
       </body>
     </html>
   );

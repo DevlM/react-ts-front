@@ -1,5 +1,6 @@
 import { LinkRightArrowIcon } from '@/components/icon';
 import Section from '@/components/section';
+import { useEnsureVariant } from '@/hooks/use-app';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -201,6 +202,7 @@ const ProductDesc = () => {
 
 
 export default function Home() {
+  useEnsureVariant('strillherezh');
   return (
     <main>
       <Hero />

@@ -16,8 +16,9 @@ const BarsListIcon = (props: { onClick: () => void; className?: string }) => {
 
 export default function SubNavbar() {
     const isMobile = useIsMobile();
-    const { isNavbarVisible } = useNavbar({ fixed: isMobile });
-    const { toggleSideBar, variant } = useSidebar();
+    const { variant } = useApp();
+    const { isNavbarVisible } = useNavbar()
+    const { toggleSideBar } = useSidebar();
     return (
         <nav className={cn(
             "bg-strilherezh-primary flex items-center fixed w-full z-9",
@@ -31,7 +32,7 @@ export default function SubNavbar() {
             <div className="flex items-center gap-5 ml-auto text-background">
                 <Link href="/">Tous nos produits</Link>
                 {isMobile ?
-                    <BarsListIcon onClick={toggleSideBar.bind(null, 'right', variant)} className="rotate-180 h-[40px]" />
+                    <BarsListIcon onClick={toggleSideBar.bind(null, 'right')} className="rotate-180 h-[40px]" />
                     : <Link href="/">Notre histoire</Link>}
             </div>
         </nav>

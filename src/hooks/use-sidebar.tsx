@@ -8,18 +8,15 @@ interface SidebarContext {
   },
   leftIsVisible: boolean,
   rightIsVisible: boolean,
-  variant?: "strillherezh" | "skornenn"
-  toggleSideBar: (id: ISideBarId, variant?: ISideBarVariant) => void;
+  toggleSideBar: (id: ISideBarId) => void;
   closeSideBar: (id: ISideBarId) => void;
 }
 
 export type ISideBarId = keyof SidebarContext['visible'];
-export type ISideBarVariant = SidebarContext['variant'];
 
 const SidebarContext = createContext<SidebarContext | null>(null);
 
 export function SidebarProvider({ children }: PropsWithChildren) {
-  const [variant, setVariant] = useState<ISideBarVariant>();
   const [visible, setVisible] = useState<SidebarContext['visible']>({
     right: false,
     left: false
@@ -46,7 +43,7 @@ export function SidebarProvider({ children }: PropsWithChildren) {
     return () => window.removeEventListener('mousedown', handleOusideClick);
   }, [visible]);
 
-  const toggleSideBar = useCallback<SidebarContext["toggleSideBar"]>((id, variant) => {
+  const toggleSideBar = useCallback<SidebarContext["toggleSideBar"]>((id) => {
     switch (id) {
       case 'left':
         setVisible({ left: !visible[id], right: false });
@@ -55,7 +52,6 @@ export function SidebarProvider({ children }: PropsWithChildren) {
         setVisible({ right: !visible[id], left: false });
         break;
     }
-    setVariant(variant);
   }, [visible])
 
   const value: SidebarContext = {
@@ -63,7 +59,6 @@ export function SidebarProvider({ children }: PropsWithChildren) {
     leftIsVisible: visible['left'],
     rightIsVisible: visible['right'],
     toggleSideBar,
-    variant,
     closeSideBar: (id) => setVisible((s) => ({ ...s, [id]: false }))
   };
 

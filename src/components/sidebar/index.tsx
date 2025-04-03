@@ -1,17 +1,18 @@
 "use client";
-import useSidebar, { ISideBarId, ISideBarVariant } from "@/hooks/use-sidebar";
+import useSidebar, { ISideBarId } from "@/hooks/use-sidebar";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 import { LinkRightArrowIcon } from "../icon";
 import Image from "next/image";
 import { useIsMobile } from "@/hooks/use-mobile";
+import useApp from "@/hooks/use-app";
 
 const XIcon = (props: { sideBarId: ISideBarId }) => {
     const { toggleSideBar } = useSidebar();
 
     return (
-        <svg onClick={toggleSideBar.bind(null, props.sideBarId, undefined)} className="size-12 cursor-pointer fill-foreground bg-accent/80 hover:bg-accent rounded-full p-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <svg onClick={toggleSideBar.bind(null, props.sideBarId)} className="size-12 cursor-pointer fill-foreground bg-accent/80 hover:bg-accent rounded-full p-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
             <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
         </svg>
     )
@@ -44,7 +45,7 @@ const SideBarBtn = (props: PropsWithChildren<{ onClick?: () => void }>) => {
 const SideBarLink = (props: PropsWithChildren<{ href: string, sideBarId: ISideBarId }>) => {
     const { toggleSideBar } = useSidebar();
     return (
-        <Link onClick={toggleSideBar.bind(null, props.sideBarId, undefined)} href={props.href} className="flex group">
+        <Link onClick={toggleSideBar.bind(null, props.sideBarId)} href={props.href} className="flex group">
             <p className="!font-outfit !font-light !text-xl flex-1">{props.children}</p>
             <ChevronLeftIcon />
         </Link>
@@ -227,8 +228,8 @@ export function SidebarLeft() {
 
 export const SidebarRight = () => {
     const isMobile = useIsMobile();
+    const { variant } = useApp();
     const { rightIsVisible, toggleSideBar, closeSideBar } = useSidebar();
-    const [page, setPage] = useState<ISideBarVariant>("strillherezh");
     const sideBarId: ISideBarId = 'right';
     
     useEffect(() => {
@@ -244,7 +245,7 @@ export const SidebarRight = () => {
             "fixed bg-background right-0 z-20 h-screen shadow-xl transition-transform duration-500 ease-in-out w-full max-w-[500px] max-sm:max-w-[360px]",
             rightIsVisible ? "translate-x-0" : "translate-x-full"
         )}>
-            <SideBarPage asSidebar sideBarId={sideBarId} page="strillherezh" currentPage={page} back={toggleSideBar.bind(null, sideBarId, "strillherezh")}
+            <SideBarPage asSidebar sideBarId={sideBarId} page="strillherezh" currentPage={variant} back={toggleSideBar.bind(null, sideBarId)}
                 logo="Strillherezh"
                 links={[
                     { content: "Tout voir", href: "/" },
@@ -252,7 +253,7 @@ export const SidebarRight = () => {
                     { content: "Notre histoire", href: "/" }
                 ]}
             />
-            <SideBarPage asSidebar sideBarId={sideBarId} page="skornenn" currentPage={page} back={toggleSideBar.bind(null, sideBarId, "skornenn")}
+            <SideBarPage asSidebar sideBarId={sideBarId} page="skornenn" currentPage={variant} back={toggleSideBar.bind(null, sideBarId)}
                 logo="Skornenn"
                 links={[
                     { content: "Tout voir", href: "/" },
