@@ -34,7 +34,7 @@ export default function RootLayout({
         className={`${outfit.variable} ${quicksand.variable} antialiased`}
       >
         <AppProvider>
-          <SidebarProvider >
+          <SidebarProvider>
             <Navbar />
             <SidebarLeft />
             <SidebarRight />
