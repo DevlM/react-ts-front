@@ -1,13 +1,14 @@
 "use client";
 import { useIsMobile } from "@/hooks/use-mobile";
 import useNavbar from "@/hooks/use-navbar";
+import useSidebar from "@/hooks/use-sidebar";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 // Les petit points rond doivent être des carrées
-const BarsListIcon = (props: { className?: string }) => {
+const BarsListIcon = (props: { onClick: () => void; className?: string }) => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={props.className}>
+        <svg onClick={props.onClick} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={props.className}>
             <path strokeLinecap="butt" strokeLinejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
         </svg>
     )
@@ -16,6 +17,7 @@ const BarsListIcon = (props: { className?: string }) => {
 export default function SubNavbar() {
     const isMobile = useIsMobile();
     const { isNavbarVisible } = useNavbar({ fixed: isMobile });
+    const { toggleSideBar, variant } = useSidebar();
     return (
         <nav className={cn(
             "bg-strilherezh-primary flex items-center fixed w-full z-9",
@@ -29,7 +31,7 @@ export default function SubNavbar() {
             <div className="flex items-center gap-5 ml-auto text-background">
                 <Link href="/">Tous nos produits</Link>
                 {isMobile ?
-                    <BarsListIcon className="rotate-180 h-[40px]" />
+                    <BarsListIcon onClick={toggleSideBar.bind(null, 'right', variant)} className="rotate-180 h-[40px]" />
                     : <Link href="/">Notre histoire</Link>}
             </div>
         </nav>

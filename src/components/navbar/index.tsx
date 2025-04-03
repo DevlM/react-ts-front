@@ -49,9 +49,8 @@ export default function Navbar() {
                 "py-1.5 px-4 md:px-10",
                 "min-h-12.5 md:min-h-19 transition-transform duration-500",
                 isNavbarVisible ? "translate-y-0" : "-translate-y-full"
-
             )}>
-                <div className="flex items-center gap-3" onClick={toggleSideBar}>
+                <div className="flex items-center gap-3" onClick={toggleSideBar.bind(null, 'left', undefined)}>
                     <BarsIcon className="p-1 size-8" />
                     <p className="!text-[16px]">Menu</p>
                 </div>
