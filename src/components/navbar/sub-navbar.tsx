@@ -1,4 +1,5 @@
 "use client";
+import useApp, { IAppVariant } from "@/hooks/use-app";
 import { useIsMobile } from "@/hooks/use-mobile";
 import useNavbar from "@/hooks/use-navbar";
 import useSidebar from "@/hooks/use-sidebar";
@@ -14,6 +15,11 @@ const BarsListIcon = (props: { onClick: () => void; className?: string }) => {
     )
 }
 
+const subNavbarVariants: Record<IAppVariant, string> = {
+    strillherezh: cn("bg-strilherezh-primary"),
+    skornenn: "bg-skornenn-primary",
+}
+
 export default function SubNavbar() {
     const isMobile = useIsMobile();
     const { variant } = useApp();
@@ -21,7 +27,8 @@ export default function SubNavbar() {
     const { toggleSideBar } = useSidebar();
     return (
         <nav className={cn(
-            "bg-strilherezh-primary flex items-center fixed w-full z-9",
+            subNavbarVariants[variant],
+            "flex items-center fixed w-full z-9",
             "py-2.5 px-5 md:px-10",
             "min-h-12.5 md:min-h-15 top-12.5 md:top-19 transition-transform duration-500",
             isNavbarVisible ? "translate-y-0" : "-translate-y-12.5 md:-translate-y-19"
