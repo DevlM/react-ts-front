@@ -1,14 +1,26 @@
-import Image from "next/image";
+import Image from 'next/image';
+import { FC } from 'react';
 
-const Hero = () => (
+interface HeroProps {
+    name: string;
+    title: string;
+    description: string;
+    image: string;
+    className?: string;
+}
+
+const Hero: FC<HeroProps> = (props) => (
     <div className="flex items-center justify-center min-h-[600px] relative">
-        <Image src="/dev/header.jpg" fill alt='header' className='object-center object-cover' />
+        <Image
+            src={props.image}
+            fill
+            alt="header"
+            className="object-center object-cover"
+        />
         <div className="text-center space-y-2 z-1">
-            <h2 className="uppercase text-strilherezh-primary">Strilherezh</h2>
-            <h1 className="uppercase text-background">L&rsquo;alcool breton</h1>
-            <p className='text-background'>
-                L&rsquo;Essence de la Bretagne en Chaque Goutte. (texte généré par Chat GPT)
-            </p>
+            <h2 className="uppercase text-strilherezh-primary">{props.name}</h2>
+            <h1 className="uppercase text-background">{props.title}</h1>
+            <p className="text-background">{props.description}</p>
         </div>
     </div>
 );

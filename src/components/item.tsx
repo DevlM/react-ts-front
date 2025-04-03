@@ -1,4 +1,4 @@
-import useNavbar from "@/hooks/use-navbar";
+import useApp, { IAppVariant } from "@/hooks/use-app";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -95,15 +95,70 @@ const ItemsList: FC<ItemsListProps> = ({ className }) => {
     );
 };
 
+interface ItemSectionProps extends PropsWithChildren {
+    title?: string
+    headImage?: string
+    className?: string
+    asFilter?: boolean
+    asCarousel?: boolean
 
-const ItemSection: FC<PropsWithChildren<{ title: string }>> = ({ title, children }) => {
-    const {} = useNavbar();
+}
+
+const ItemSectionVariants: Record<IAppVariant, string> = {
+    strillherezh: cn(
+        "flex justify-center items-center flex-col gap-10 md:gap-15",
+        "py-10 md:pt-20 2xl:pt-25 2xl:pb-20"
+    ),
+    skornenn: cn(
+        "space-y-10 md:space-y-15"
+    ),
+}
+
+const ItemSectionHeadVariants: Record<IAppVariant, string> = {
+    strillherezh: cn(),
+    skornenn: cn(
+        "bg-skornenn-primary text-background min-h-12.5 grid items-center justify-between",
+        "grid-cols-[20%_auto_20%]",
+        "md:min-h-25"
+    ),
+}
+
+
+const ItemSection: FC<ItemSectionProps> = ({ title, headImage, asFilter, asCarousel, children }) => {
+    const { variant } = useApp();
     return (
         <section className={cn(
-            "flex justify-center items-center flex-col gap-10 md:gap-15",
-            "py-10 md:pt-20 2xl:pt-25 2xl:pb-20"
+            ItemSectionVariants[variant || 'default'],
+            asCarousel && "space-y-0 md:space-y-0 min-h-screen"
         )}>
-            <h3>{title}</h3>
+            <div className={cn(
+                ItemSectionHeadVariants[variant || 'default'],
+                !headImage && "justify-center"
+            )}>
+                <div className="relative w-full h-full">
+                    {headImage && <Image
+                        src={headImage}
+                        alt={title || 'image'}
+                        fill
+                        className="object-cover"
+                    />}
+                </div>
+                {title && <h3 className="text-xl text-center py-5">{title}</h3>}
+                <div className="relative w-full h-full">
+                    {headImage && <Image
+                        src={headImage}
+                        alt={title || 'image'}
+                        fill
+                        className="object-cover rotate-180"
+                    />}
+                </div>
+            </div>
+            {asFilter && (
+                <div className="flex gap-2.5">
+                    <p className="flex-1">16 Résultat(s) Trouvé(s)</p>
+                    <button className="ml-auto">Filtres + Icon</button>
+                </div>
+            )}
             {children}
         </section>
     )

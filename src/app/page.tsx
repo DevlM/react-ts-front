@@ -115,7 +115,12 @@ export default function Home() {
   useEnsureVariant('strillherezh');
   return (
     <main>
-      <Hero />
+      <Hero
+        name='Strillherezh'
+        title='L&rsquo;alcool de Breton'
+        description='L&rsquo;Essence de la Bretagne en Chaque Goutte. (texte généré par ChatGPT)'
+        image='/dev/header.jpg'
+      />
       <section className={cn(
         "flex justify-center items-center flex-col gap-1.5",
         "py-7.5 md:py-10 2xl:py-15"

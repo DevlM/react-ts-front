@@ -7,6 +7,8 @@ import { SidebarLeft, SidebarRight } from "@/components/sidebar";
 import { SidebarProvider } from "@/hooks/use-sidebar";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AppProvider } from "@/hooks/use-app";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const outfit = Outfit({
   variable: "--font-outfit",

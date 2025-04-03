@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #505050;
+  --text-shadow: 0px 4px 4px rgba(0, 0, 0, 1);
 }
 
 @theme inline {
@@ -25,7 +26,15 @@
   --color-accent: #E3E3E3;
 }
 
-h1, h2, h3, h4 {
+@utility text-shadow-* {
+  text-shadow: --value(--text-shadow-*);
+}
+
+
+h1,
+h2,
+h3,
+h4 {
   @apply font-outfit leading-[100%] tracking-[5%]
 }
 
@@ -33,24 +42,29 @@ h1, h2 {
   @apply font-light;
 }
 
-h3, h4 {
+h3,
+h4 {
   @apply font-normal;
 }
 
 h1 {
   @apply text-[50px] sm:text-[80px];
 }
+
 h2 {
   @apply text-[25px] sm:text-[40px] max-sm:text-[30px];
 }
+
 h3 {
   @apply text-[20px] sm:text-[30px];
 }
+
 h4 {
   @apply text-[15px] sm:text-[20px];
 }
 
-p, a {
+p,
+a {
   @apply text-xs xs:text-sm md:text-base font-quicksand leading-[100%] tracking-[0%]
 }
 

@@ -162,7 +162,7 @@ export function SidebarLeft() {
             <SideBarPage sideBarId={sideBarId} page="Skornenn" currentPage={page} back={() => setPage("default")}
                 logo="Skornenn"
                 links={[
-                    { content: "Tout voir", href: "/" },
+                    { content: "Tout voir", href: "/skornenn" },
                     { content: "Histoire de Skornenn", href: "/" }
                 ]}
 
@@ -231,11 +231,9 @@ export const SidebarRight = () => {
     const { variant } = useApp();
     const { rightIsVisible, toggleSideBar, closeSideBar } = useSidebar();
     const sideBarId: ISideBarId = 'right';
-    
+
     useEffect(() => {
-        setPage("strillherezh");
-        if (!isMobile)
-            closeSideBar(sideBarId);
+        if (!isMobile && rightIsVisible) closeSideBar(sideBarId);
     }, [closeSideBar, isMobile, rightIsVisible])
 
 
