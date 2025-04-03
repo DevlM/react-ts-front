@@ -28,14 +28,6 @@ export function SidebarProvider({ children }: PropsWithChildren) {
       const clickInNavbar = sidebars.values().some((element) => element.contains(e.target as Node));
       if (!clickInNavbar)
         setVisible((s) => ({ ...s, left: false, right: false }));
-      // sidebars.forEach((sidebar) => {
-      //   const sideBarId = sidebar.id.split('-')[1] as ISideBarId;
-      //   const isActive = visible[sideBarId]
-      //   if (sidebar && !clickInNavbar && !sidebar.contains(e.target as Node)) {
-      //     console.log('ouside close')
-      //     setVisible((s) => ({ ...s, left: false, right: false }));
-      //   }
-      // });
     };
 
     window.addEventListener('mousedown', handleOusideClick);
