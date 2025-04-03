@@ -10,10 +10,16 @@ interface SectionProps {
     img?: string,
     links: { content: string, href: string }[],
     children: React.ReactNode
+    variant?: keyof typeof SectionVariants
 }
 
 interface SectionContentProps extends PropsWithChildren {
     className?: string
+}
+
+const SectionVariants = {
+    default: '',
+    list: ''
 }
 
 const Section: FC<SectionProps> & {
@@ -29,6 +35,7 @@ const Section: FC<SectionProps> & {
 
     return (
         <section className={cn(
+            SectionVariants[props.variant || 'default'],
             "inline-flex relative",
             "py-37.5 px-5",
             "md:py-32.5 md:px-10",

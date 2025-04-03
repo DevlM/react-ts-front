@@ -3,9 +3,12 @@ import { Outfit, Quicksand } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/navbar";
 import Footer from "@/components/footer";
-import Sidebar from "@/components/sidebar";
+import { SidebarLeft, SidebarRight } from "@/components/sidebar";
 import { SidebarProvider } from "@/hooks/use-sidebar";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { AppProvider } from "@/hooks/use-app";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -32,13 +35,16 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${quicksand.variable} antialiased`}
       >
-        <SidebarProvider>
-          <Navbar />
-          <Sidebar />
-          {children}
-          <Footer />
-        </SidebarProvider>
-        <SpeedInsights />
+        <AppProvider>
+          <SidebarProvider>
+            <Navbar />
+            <SidebarLeft />
+            <SidebarRight />
+            {children}
+            <Footer />
+          </SidebarProvider>
+          <SpeedInsights />
+        </AppProvider>
       </body>
     </html>
   );
