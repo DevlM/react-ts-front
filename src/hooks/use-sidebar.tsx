@@ -1,30 +1,58 @@
 "use client";
-import { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react';
+import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useState } from 'react';
 
 interface SidebarContext {
-  isVisible: boolean;
-  toggleSideBar: () => void;
+  visible: {
+    left: boolean,
+    right: boolean
+  },
+  leftIsVisible: boolean,
+  rightIsVisible: boolean,
+  toggleSideBar: (id: ISideBarId) => void;
+  closeSideBar: (id: ISideBarId) => void;
 }
+
+export type ISideBarId = keyof SidebarContext['visible'];
 
 const SidebarContext = createContext<SidebarContext | null>(null);
 
 export function SidebarProvider({ children }: PropsWithChildren) {
-  const [isVisible, setVisible] = useState(false);
+  const [visible, setVisible] = useState<SidebarContext['visible']>({
+    right: false,
+    left: false
+  });
 
   useEffect(() => {
     const handleOusideClick = (e: MouseEvent) => {
-      const sidebar = document.getElementById('sidebar');
-      if (sidebar && !sidebar.contains(e.target as Node)) {
-        setVisible(false);
-      }
+      const sidebars = document.querySelectorAll('[id^="sidebar-"]');
+      const clickInNavbar = sidebars.values().some((element) => element.contains(e.target as Node));
+      if (!clickInNavbar)
+        setVisible((s) => ({ ...s, left: false, right: false }));
     };
 
     window.addEventListener('mousedown', handleOusideClick);
 
     return () => window.removeEventListener('mousedown', handleOusideClick);
-  }, [isVisible]);
+  }, [visible]);
 
-  const value = { isVisible, toggleSideBar: () => setVisible(!isVisible) };
+  const toggleSideBar = useCallback<SidebarContext["toggleSideBar"]>((id) => {
+    switch (id) {
+      case 'left':
+        setVisible({ left: !visible[id], right: false });
+        break;
+      case 'right':
+        setVisible({ right: !visible[id], left: false });
+        break;
+    }
+  }, [visible])
+
+  const value: SidebarContext = {
+    visible,
+    leftIsVisible: visible['left'],
+    rightIsVisible: visible['right'],
+    toggleSideBar,
+    closeSideBar: (id) => setVisible((s) => ({ ...s, [id]: false }))
+  };
 
   return <SidebarContext value={value}>{children}</SidebarContext>;
 }
