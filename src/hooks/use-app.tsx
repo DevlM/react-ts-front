@@ -1,7 +1,13 @@
-"use client";
-import { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react';
+'use client';
+import {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 
-export type IAppVariant = 'strillherezh' | 'skornenn';
+export type IAppVariant = 'societe' | 'societe2';
 
 interface AppContext {
   variant: IAppVariant;
@@ -12,17 +18,16 @@ const AppContext = createContext<AppContext | null>(null);
 
 export default function useApp(): AppContext {
   const context = useContext(AppContext);
-  if (!context) throw new Error("useApp need to be in AppProvider.");
+  if (!context) throw new Error('useApp need to be in AppProvider.');
   return context;
 }
 
-
 export function AppProvider({ children }: PropsWithChildren) {
-  const [variant, setVariant] = useState<IAppVariant>('strillherezh');
+  const [variant, setVariant] = useState<IAppVariant>('societe');
 
   const value: AppContext = {
     variant,
-    setVariant
+    setVariant,
   };
 
   return <AppContext value={value}>{children}</AppContext>;
@@ -31,7 +36,6 @@ export function AppProvider({ children }: PropsWithChildren) {
 export const useEnsureVariant = (variant: IAppVariant) => {
   const { variant: currentVariant, setVariant } = useApp();
   useEffect(() => {
-    if (currentVariant !== variant)
-      setVariant(variant)
+    if (currentVariant !== variant) setVariant(variant);
   }, [variant, setVariant, currentVariant]);
-}
+};

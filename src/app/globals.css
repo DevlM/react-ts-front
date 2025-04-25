@@ -18,10 +18,10 @@
   --font-quicksand: "Quicksand";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-strilherezh-primary: #E0AA3E;
-  --color-strilherezh-tertiary: #F5CA5B;
-  --color-skornenn-primary: #003D75;
-  --color-skornenn-secondary: #33CEF1;
+  --color-societe-primary: #E0AA3E;
+  --color-societe-tertiary: #F5CA5B;
+  --color-societe2-primary: #003D75;
+  --color-societe2-secondary: #33CEF1;
   --color-muted: #AAAAAA;
   --color-accent: #E3E3E3;
 }
